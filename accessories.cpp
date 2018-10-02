@@ -79,9 +79,19 @@ bool wrongNumberOfArgs(int argc)
 { return argc!=16;
 }
 
-int msgdbg1(int Na, int Nb, int Nc, size_t clusterSize)
+int msgdbg1(int Na, int Nb, int Nc, const Cluster & cluster)
 { std::cout << "Na = " << Na << ", Nb = " << Nb << ", Nc = " << Nc << ".\n";
-  std::cout << "Cluster size: " << clusterSize << ".\n";
+  std::cout << "Cluster size: " << cluster.size() << ".\n";
+  for (auto & plane : cluster.lattice())
+  { 
+    for (auto & row : plane)
+    { for (auto & point : row)
+      { std::cout << "("<<point[1]<<", "<<point[2]<<", "<<point[3]<<").\n";
+      }
+    }
+  }
+  point_t onePoint = cluster.lattice()[3][2][1]; // [z][y][x]
+  std::cout << "element cluster[0][0][0]= ("<<onePoint[1]<<", "<<onePoint[2]<<", "<<onePoint[3]<<").\n";
   return 0;
 }
 

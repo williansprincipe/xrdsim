@@ -19,7 +19,7 @@ int main(int argc, char * argv [])
   int Na=0; int Nb=0; int Nc=0; double r=12.0; double L=20.0; int n=20;
   parseArguments(argc,argv,a,b,c,Na,Nb,Nc,r,L,n);
   Cluster cluster(a,b,c,Na,Nb,Nc);
-  msgdbg1(Na,Nb,Nc,cluster.size());
+  msgdbg1(Na,Nb,Nc,cluster);
   std::cout << "The execution ended normally!\n";
   return rvOk;
 }

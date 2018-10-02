@@ -10,7 +10,7 @@ Cluster::Cluster(fsVec_t a, fsVec_t b, fsVec_t c, int Na, int Nb, int Nc)
     for (int j = 0; j < Nb; ++j)
     { row_t auxRow;
       for (int i = 0; i < Na; ++i)
-      { auxRow.push_back({0,0,0,0});
+      { auxRow.push_back({0.0,0.1,0.2,0.3});
       }
       auxPlane.push_back(auxRow);
     }
@@ -18,7 +18,7 @@ Cluster::Cluster(fsVec_t a, fsVec_t b, fsVec_t c, int Na, int Nb, int Nc)
   }
 }
 
-size_t Cluster::size() // -----------------------------------------
+size_t Cluster::size() const // -----------------------------------------
 {
   if (cluster_.empty())
   { return 0;
@@ -32,6 +32,11 @@ size_t Cluster::size() // -----------------------------------------
   else
   { return cluster_.size() * cluster_[0].size() * cluster_[0][0].size();
   }
+}
+
+space_t Cluster::lattice() const
+
+{ return cluster_;
 }
 
 //eof accessories.cpp

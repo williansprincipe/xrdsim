@@ -12,9 +12,10 @@ class Cluster
   Cluster()=default;
  ~Cluster()=default;
   Cluster(fsVec_t a, fsVec_t b, fsVec_t c, int Na, int Nb, int Nc);
-  size_t size();
+  size_t size() const;
+  space_t lattice() const;
  private:
- cluster_t cluster_;
+ space_t cluster_;
 };
 #endif
 // eof accessories.h

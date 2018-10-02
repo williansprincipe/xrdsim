@@ -7,6 +7,7 @@
 
 #include <array>
 #include "globals.h"
+#include "Cluster.h"
 
 int msgToUserHeader();
 bool wrongNumberOfArgs(int argc);
@@ -16,7 +17,7 @@ int parseArguments(const int argc, char ** argv,
       int & Na, int & Nb, int & Nc,
       double & r, double & L, int & n);
 
-int msgdbg1(int Na, int Nb, int Nc, size_t clusterSize);
+int msgdbg1(int Na, int Nb, int Nc, const Cluster & cluster);
 
 #endif
 // eof accessories.h
