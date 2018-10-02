@@ -1,14 +1,16 @@
 // accessories.cpp
 // functions of general use
 //
+
 #include"accessories.h"
 #include<iostream>
+
 int msgToUserHeader()
 { std::cout << "xrd1 -- v 0.2 -- 20180927_16h20min\n";
   return 0;
 }
 
-int msgToUserUsage()
+int msgToUserUsage(int argc)
 { std::cout << "This little program calculates the diffraction pattern\n"
     << "produced by plane monochromatic x-ray scattering through a \n"
     << "finite piece of a lattice (a cluster).\n"
@@ -30,10 +32,17 @@ int msgToUserUsage()
     << "\t\tr is the distance from the sample to the screen in cm,\n"
     << "\t\tL is the screen size in cm (square screen normal to z axis) and\n"
     << "\t\tn is the number of points per screen dimension.\n";
+    std::cout << "Nothing done.\n";
+    std::cout << (argc==0?
+                  "Execution terminated well.\n":
+                  "Execution terminated with error.\nError code equals number of given arguments.\n");
   return 0;
 }
 
-int parseArguments(int argc, char ** argv, std::array<double,4> a, std::array<double,4> b, std::array<double,4> c, int Na, int Nb, int Nc, double r, double L, int n)
+int parseArguments(const int argc, char ** argv,
+      fsVec_t & a, fsVec_t & b, fsVec_t & c,
+      int & Na, int & Nb, int & Nc,
+      double & r, double & L, int & n)
 {
   a[1] = std::stod(argv[1]);
   a[2] = std::stod(argv[2]);
@@ -68,6 +77,12 @@ int msgdbg1(const int N, const double a, const double r,
 
 bool wrongNumberOfArgs(int argc)
 { return argc!=16;
+}
+
+int msgdbg1(int Na, int Nb, int Nc, size_t clusterSize)
+{ std::cout << "Na = " << Na << ", Nb = " << Nb << ", Nc = " << Nc << ".\n";
+  std::cout << "Cluster size: " << clusterSize << ".\n";
+  return 0;
 }
 
 // eof accessories.cpp

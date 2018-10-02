@@ -1,13 +1,20 @@
 // accessories.h
 // functions of general use
 //
+
 #ifndef CLUSTER_H
 #define CLUSTER_H
+
+#include "globals.h"
+
 class Cluster
 {public:
-  Cluster(size_t)
-  site_t size();
+  Cluster()=default;
+ ~Cluster()=default;
+  Cluster(fsVec_t a, fsVec_t b, fsVec_t c, int Na, int Nb, int Nc);
+  size_t size();
  private:
-  std::vector<std::array<4,double>> cluster_;
+ cluster_t cluster_;
 };
-#endif // eof accessories.h
+#endif
+// eof accessories.h
