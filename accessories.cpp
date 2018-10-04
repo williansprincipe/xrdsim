@@ -91,7 +91,7 @@ int msgdbg1(int Na, int Nb, int Nc, const Cluster & cluster)
     }
   }
   point_t onePoint = cluster.lattice()[3][2][1]; // [z][y][x]
-  std::cout << "element cluster[0][0][0]= ("<<onePoint[1]<<", "<<onePoint[2]<<", "<<onePoint[3]<<").\n";
+  std::cout << "element cluster[1][2][3]= ("<<onePoint[1]<<", "<<onePoint[2]<<", "<<onePoint[3]<<").\n";
   return 0;
 }
 
