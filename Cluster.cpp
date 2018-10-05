@@ -3,19 +3,28 @@
 //
 
 #include "Cluster.h"
+#include<iostream>
   
-Cluster::Cluster(fsVec_t a, fsVec_t b, fsVec_t c, int Na, int Nb, int Nc)
-{ const point_t clusterOrigin={0.0, 0.0, 0.0, 0.0};
-  for (int k = 0; k < Nc; ++k)
+Cluster::Cluster(vector_t a, vector_t b, vector_t c, int Na, int Nb, int Nc)
+{ const point_t clusterOrigin(0.0, 0.0,0.0);
+  vector_t clusterOffset;
+  clusterOffset.x(-((Na-1) * a.x() + (Nb-1) * b.x() + (Nc-1) * c.x())/2);
+  clusterOffset.y(-((Na-1) * a.y() + (Nb-1) * b.y() + (Nc-1) * c.y())/2);
+  clusterOffset.z(-((Na-1) * a.z() + (Nb-1) * b.z() + (Nc-1) * c.z())/2);
+  std::cout << "ClusterOffset: x=" << clusterOffset.x() << ", " << "y=" << clusterOffset.y() << ", " << "z=" << clusterOffset.z() << "\n";
+  for (int k = 0 ; k < Nc; ++k)
   { plane_t auxPlane;
     for (int j = 0; j < Nb; ++j)
     { row_t auxRow;
       for (int i = 0; i < Na; ++i)
-      { double x0 = clusterOrigin[0] + i * a[0] + j * b[0] + k * c[0];
-        double x1 = clusterOrigin[1] + i * a[1] + j * b[1] + k * c[1];
-        double x2 = clusterOrigin[2] + i * a[2] + j * b[2] + k * c[2];
-        double x3 = clusterOrigin[3] + i * a[3] + j * b[3] + k * c[3];
-        auxRow.push_back({x0,x1,x2,x3});
+      { point_t point;
+        point.x(clusterOrigin.x() + clusterOffset.x() +
+            i * a.x() + j * b.x() + k * c.x());
+        point.y(clusterOrigin.y() + clusterOffset.y() +
+            i * a.y() + j * b.y() + k * c.y());
+        point.z(clusterOrigin.z() + clusterOffset.z() +
+            i * a.z() + j * b.z() + k * c.z());
+        auxRow.push_back(point);
       }
       auxPlane.push_back(auxRow);
     }

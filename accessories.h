@@ -13,7 +13,7 @@ int msgToUserHeader();
 bool wrongNumberOfArgs(int argc);
 int msgToUserUsage(int argc);
 int parseArguments(const int argc, char ** argv,
-      fsVec_t & a, fsVec_t & b, fsVec_t & c,
+      vector_t & a, vector_t & b, vector_t & c,
       int & Na, int & Nb, int & Nc,
       double & r, double & L, int & n);
 

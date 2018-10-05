@@ -11,7 +11,7 @@ class Cluster
 {public:
   Cluster()=default;
  ~Cluster()=default;
-  Cluster(fsVec_t a, fsVec_t b, fsVec_t c, int Na, int Nb, int Nc);
+  Cluster(vector_t a, vector_t b, vector_t c, int Na, int Nb, int Nc);
   size_t size() const;
   space_t lattice() const;
  private:

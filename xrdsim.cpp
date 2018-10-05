@@ -15,7 +15,7 @@ int main(int argc, char * argv [])
   { msgToUserUsage(argc);
     return (argc-1);
   }
-  fsVec_t a; fsVec_t b; fsVec_t c;
+  vector_t a; vector_t b; vector_t c;
   int Na=0; int Nb=0; int Nc=0; double r=12.0; double L=20.0; int n=20;
   parseArguments(argc,argv,a,b,c,Na,Nb,Nc,r,L,n);
   Cluster cluster(a,b,c,Na,Nb,Nc);

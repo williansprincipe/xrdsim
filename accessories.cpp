@@ -40,19 +40,19 @@ int msgToUserUsage(int argc)
 }
 
 int parseArguments(const int argc, char ** argv,
-      fsVec_t & a, fsVec_t & b, fsVec_t & c,
+      vector_t & a, vector_t & b, vector_t & c,
       int & Na, int & Nb, int & Nc,
       double & r, double & L, int & n)
 {
-  a[1] = std::stod(argv[1]);
-  a[2] = std::stod(argv[2]);
-  a[3] = std::stod(argv[3]);
-  b[1] = std::stod(argv[4]);
-  b[2] = std::stod(argv[5]);
-  b[3] = std::stod(argv[6]);
-  c[1] = std::stod(argv[7]);
-  c[2] = std::stod(argv[8]);
-  c[3] = std::stod(argv[9]);
+  a.x(std::stod(argv[1]));
+  a.y(std::stod(argv[2]));
+  a.z(std::stod(argv[3]));
+  b.x(std::stod(argv[4]));
+  b.y(std::stod(argv[5]));
+  b.z(std::stod(argv[6]));
+  c.x(std::stod(argv[7]));
+  c.y(std::stod(argv[8]));
+  c.z(std::stod(argv[9]));
   Na = std::stod(argv[10]);
   Nb = std::stod(argv[11]);
   Nc = std::stod(argv[12]);
@@ -86,12 +86,12 @@ int msgdbg1(int Na, int Nb, int Nc, const Cluster & cluster)
   { 
     for (auto & row : plane)
     { for (auto & point : row)
-      { std::cout << "("<<point[1]<<", "<<point[1]<<", "<<point[1]<<").\n";
+      { std::cout << "("<<point.x()<<", "<<point.y()<<", "<<point.z()<<").\n";
       }
     }
   }
   point_t onePoint = cluster.lattice()[1][1][1];
-  std::cout << "element cluster[1][2][3]= ("<<onePoint[1]<<", "<<onePoint[2]<<", "<<onePoint[3]<<").\n";
+  std::cout << "element cluster[1][1][1]= ("<<onePoint.x()<<", "<<onePoint.y()<<", "<<onePoint.z()<<").\n";
   return 0;
 }
 
