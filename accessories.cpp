@@ -86,11 +86,11 @@ int msgdbg1(int Na, int Nb, int Nc, const Cluster & cluster)
   { 
     for (auto & row : plane)
     { for (auto & point : row)
-      { std::cout << "("<<point[1]<<", "<<point[2]<<", "<<point[3]<<").\n";
+      { std::cout << "("<<point[1]<<", "<<point[1]<<", "<<point[1]<<").\n";
       }
     }
   }
-  point_t onePoint = cluster.lattice()[3][2][1]; // [z][y][x]
+  point_t onePoint = cluster.lattice()[1][1][1];
   std::cout << "element cluster[1][2][3]= ("<<onePoint[1]<<", "<<onePoint[2]<<", "<<onePoint[3]<<").\n";
   return 0;
 }
