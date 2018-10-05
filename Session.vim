@@ -59,6 +59,11 @@ badd +1 accessories.h
 badd +1 accessories.cpp
 badd +1 Cluster.h
 badd +1 Cluster.cpp
+badd +41 ~/source/factorial/RunDirFactory.cc
+badd +1 ~/source/factorial/crmain.cc
+badd +35 ~/source/factorial/RunDirFactory.h
+badd +1 ~/xpx/Plot2D.cc
+badd +53 ~/xpx/Plot2D.h
 argglobal
 silent! argdel *
 set stal=2
@@ -182,12 +187,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 17) / 35)
+let s:l = 12 - ((11 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+12
+normal! 02|
 tabedit globals.h
 set splitbelow splitright
 set nosplitbelow
@@ -199,7 +204,7 @@ setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
 setlocal backupcopy=
-setlocal balloonexpr=
+setlocal balloonexpr=netrw#BalloonHelp()
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
@@ -308,11 +313,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 17) / 35)
+let s:l = 4 - ((2 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+4
 normal! 0
 tabedit accessories.h
 set splitbelow splitright
@@ -434,12 +439,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 17) / 35)
+let s:l = 8 - ((7 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+8
+normal! 016|
 tabedit accessories.cpp
 set splitbelow splitright
 set nosplitbelow
@@ -560,12 +565,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 94 - ((29 * winheight(0) + 17) / 35)
+let s:l = 47 - ((0 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-94
-normal! 039|
+47
+normal! 05|
 tabedit Cluster.h
 set splitbelow splitright
 set nosplitbelow
@@ -686,12 +691,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 17) / 35)
+let s:l = 14 - ((13 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+14
+normal! 04|
 tabedit Cluster.cpp
 set splitbelow splitright
 set nosplitbelow
@@ -812,13 +817,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 17) / 35)
+let s:l = 56 - ((34 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
-normal! 09|
-tabnext 4
+56
+normal! 021|
+tabnext 3
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
