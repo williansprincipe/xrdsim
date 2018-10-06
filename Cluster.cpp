@@ -1,30 +1,27 @@
-// accessories.cpp
-// functions of general use
-//
+// Cluster.cpp
+// cluster of atoms
+// wpf 20180928 11h
 
 #include "Cluster.h"
 #include<iostream>
   
 Cluster::Cluster(vector_t a, vector_t b, vector_t c, int Na, int Nb, int Nc)
-{ const point_t clusterOrigin(0.0, 0.0,0.0);
-  vector_t clusterOffset;
-  clusterOffset.x(-((Na-1) * a.x() + (Nb-1) * b.x() + (Nc-1) * c.x())/2);
-  clusterOffset.y(-((Na-1) * a.y() + (Nb-1) * b.y() + (Nc-1) * c.y())/2);
-  clusterOffset.z(-((Na-1) * a.z() + (Nb-1) * b.z() + (Nc-1) * c.z())/2);
-  std::cout << "ClusterOffset: x=" << clusterOffset.x() << ", " << "y=" << clusterOffset.y() << ", " << "z=" << clusterOffset.z() << "\n";
-  for (int k = 0 ; k < Nc; ++k)
+{ const point_t cOr(0.0, 0.0,0.0); // clusterOrigin
+        vector_t cOf;              // clusterOffset
+  cOf.x(-((Na-1) * a.x() + (Nb-1) * b.x() + (Nc-1) * c.x())/2);
+  cOf.y(-((Na-1) * a.y() + (Nb-1) * b.y() + (Nc-1) * c.y())/2);
+  cOf.z(-((Na-1) * a.z() + (Nb-1) * b.z() + (Nc-1) * c.z())/2);
+  std::cout << "ClusterOffset: " << "x=" << cOf.x() << ", " << "y=" << cOf.y() << ", " << "z=" << cOf.z() << "\n";
+  for (int iz = 0 ; iz < Nc; ++iz)
   { plane_t auxPlane;
-    for (int j = 0; j < Nb; ++j)
+    for (int iy = 0; iy < Nb; ++iy)
     { row_t auxRow;
-      for (int i = 0; i < Na; ++i)
-      { point_t point;
-        point.x(clusterOrigin.x() + clusterOffset.x() +
-            i * a.x() + j * b.x() + k * c.x());
-        point.y(clusterOrigin.y() + clusterOffset.y() +
-            i * a.y() + j * b.y() + k * c.y());
-        point.z(clusterOrigin.z() + clusterOffset.z() +
-            i * a.z() + j * b.z() + k * c.z());
-        auxRow.push_back(point);
+      for (int ix = 0; ix < Na; ++ix)
+      { point_t pt;
+        pt.x(cOr.x() + cOf.x() + ix * a.x() + iy * b.x() + iz * c.x());
+        pt.y(cOr.y() + cOf.y() + ix * a.y() + iy * b.y() + iz * c.y());
+        pt.z(cOr.z() + cOf.z() + ix * a.z() + iy * b.z() + iz * c.z());
+        auxRow.push_back(pt);
       }
       auxPlane.push_back(auxRow);
     }
@@ -53,4 +50,4 @@ space_t Cluster::lattice() const
 { return cluster_;
 }
 
-//eof accessories.cpp
+//eof Cluster.cpp

@@ -1,6 +1,6 @@
-// accessories.h
-// functions of general use
-//
+// Cluster.h
+// cluster of atoms
+// wpf 20180928 11h
 
 #ifndef CLUSTER_H
 #define CLUSTER_H
@@ -18,4 +18,4 @@ class Cluster
  space_t cluster_;
 };
 #endif
-// eof accessories.h
+// eof Cluster.h

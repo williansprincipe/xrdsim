@@ -15,7 +15,7 @@ int msgToUserUsage(int argc)
     << "produced by plane monochromatic x-ray scattering through a \n"
     << "finite piece of a lattice (a cluster).\n"
     << "Usage:\n"
-    << "\txrd1 a1 a2 a3 b1 b2 b3 c1 c2 c3 Na Nb Nc r L n\n"
+    << "\txrd1 a1 a2 a3 b1 b2 b3 c1 c2 c3 Na Nb Nc d L n\n"
     << "\twhere\n"
     << "\t\ta1 is the x component of the first lattice vector in angstroms,\n"
     << "\t\ta2 is the y component of the first lattice vector in angstroms,\n"
@@ -29,7 +29,7 @@ int msgToUserUsage(int argc)
     << "\t\tNa is the number of lattice points in cluster in the a direction,\n"
     << "\t\tNb is the number of lattice points in cluster in the b direction,\n"
     << "\t\tNc is the number of lattice points in cluster in the c direction,\n"
-    << "\t\tr is the distance from the sample to the screen in cm,\n"
+    << "\t\td is the distance from the sample to the screen in cm,\n"
     << "\t\tL is the screen size in cm (square screen normal to z axis) and\n"
     << "\t\tn is the number of points per screen dimension.\n";
     std::cout << "Nothing done.\n";
@@ -42,7 +42,7 @@ int msgToUserUsage(int argc)
 int parseArguments(const int argc, char ** argv,
       vector_t & a, vector_t & b, vector_t & c,
       int & Na, int & Nb, int & Nc,
-      double & r, double & L, int & n)
+      double & d, double & L, int & n)
 {
   a.x(std::stod(argv[1]));
   a.y(std::stod(argv[2]));
@@ -56,19 +56,19 @@ int parseArguments(const int argc, char ** argv,
   Na = std::stod(argv[10]);
   Nb = std::stod(argv[11]);
   Nc = std::stod(argv[12]);
-  r = std::stod(argv[13]);
+  d = std::stod(argv[13]);
   L = std::stod(argv[14]);
   n = std::stoi(argv[15]);
   return 0;
 }
 
 /*
-int msgdbg1(const int N, const double a, const double r,
+int msgdbg1(const int N, const double a, const double d,
     const double L, const int n)
 { std::cout << "Argument values\n"
     << "\tNumber of lattice points per dimension: N = " << N << ",\n"
     << "\tLattice constant (cubic lattice): a = " << a << " angstroms,\n"
-    << "\tDistance from the sample to the screen: r = " << r << " cm,\n"
+    << "\tDistance from the sample to the screen: d = " << d << " cm,\n"
     << "\tScreen size: L = " << L << " cm,\n"
     << "\tNumber of points per screen dimension: n = " << n << ".\n";
   return 0;
