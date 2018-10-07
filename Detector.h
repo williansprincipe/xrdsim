@@ -13,7 +13,10 @@ class Screen
   Screen()=default;
   Screen(int size, double sizecm)
     // size = number of points; sizecm = size/cm
-    : size_(size), sizecm_(sizecm) { }
+  : size_(size),
+    sizecm_(sizecm),
+    screen_(std::vector<std::vector<double>>(size,std::vector<double>(size,0)))
+  { }
  ~Screen()=default;
   const size_t size() const;
   const double sizecm() const;
@@ -23,6 +26,7 @@ class Screen
  private:
   int size_;        // one side of a square, in number of points
   double sizecm_;   // one side of a square, in cm
+  std::vector<std::vector<double>> screen_;
 };
 #endif
 // eof Screen.h

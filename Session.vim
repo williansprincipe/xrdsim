@@ -64,6 +64,8 @@ badd +1 ~/source/factorial/crmain.cc
 badd +35 ~/source/factorial/RunDirFactory.h
 badd +1 ~/xpx/Plot2D.cc
 badd +53 ~/xpx/Plot2D.h
+badd +27 Screen.h
+badd +17 Screen.cpp
 argglobal
 silent! argdel *
 set stal=2
@@ -187,7 +189,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 17) / 35)
+let s:l = 12 - ((10 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -691,11 +693,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 17) / 35)
+let s:l = 18 - ((17 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
+18
 normal! 04|
 tabedit Cluster.cpp
 set splitbelow splitright
@@ -817,13 +819,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 56 - ((34 * winheight(0) + 17) / 35)
+let s:l = 1 - ((0 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-56
-normal! 021|
-tabnext 3
+1
+normal! 0
+tabnext 6
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

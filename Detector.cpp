@@ -10,6 +10,10 @@
                       double d)  // d = distance
   { std::cout << " distance d = " << d << "\n";
     std::cout << "todo: normalize k?\n";
+    std::cout << "Size of screen: " << screen_.size() << "\n";
+    if (!screen_.empty())
+    { std::cout << "Size of screen[0]: " << screen_[0].size() << "\n";
+    }
     return;
   }
 
