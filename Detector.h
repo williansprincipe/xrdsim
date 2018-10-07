@@ -1,5 +1,5 @@
-// Screen.h
-// screen of the detector
+// Detector.h
+// detector object
 // wpf 20181006 20h
 
 #ifndef SCREEN_H
@@ -8,16 +8,16 @@
 #include "globals.h"
 #include "Cluster.h"
 
-class Screen
+class Detector
 {public:
-  Screen()=default;
-  Screen(int size, double sizecm)
+  Detector()=default;
+  Detector(int size, double sizecm)
     // size = number of points; sizecm = size/cm
   : size_(size),
     sizecm_(sizecm),
-    screen_(std::vector<std::vector<double>>(size,std::vector<double>(size,0)))
+    detector_(std::vector<std::vector<double>>(size,std::vector<double>(size,0)))
   { }
- ~Screen()=default;
+ ~Detector()=default;
   const size_t size() const;
   const double sizecm() const;
   void detect(const Cluster& cluster,
@@ -26,7 +26,7 @@ class Screen
  private:
   int size_;        // one side of a square, in number of points
   double sizecm_;   // one side of a square, in cm
-  std::vector<std::vector<double>> screen_;
+  std::vector<std::vector<double>> detector_;
 };
 #endif
-// eof Screen.h
+// eof Detector.h

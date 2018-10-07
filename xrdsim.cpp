@@ -7,7 +7,7 @@
 #include <string>
 #include "accessories.h"
 #include "Cluster.h"
-#include "Screen.h"
+#include "Detector.h"
 
 int main(int argc, char * argv [])
 { int rvOk=0;// int rvError=1; // 0=ok, 1=error
@@ -21,12 +21,12 @@ int main(int argc, char * argv [])
   parseArguments(argc,argv,a,b,c,Na,Nb,Nc,d,L,n);
   Cluster cluster(a,b,c,Na,Nb,Nc);
   msgdbg1(Na,Nb,Nc,cluster);
-  Screen screen(L,n);
+  Detector detector(L,n);
   vector_t k;
   k.x(0.0); k.y(0.0); k.z(1.0); 
   vector_t kp;
   kp = k;
-  screen.detect(cluster,k,kp,d); // real processing of the pattern
+  detector.detect(cluster,k,kp,d); // real processing of the pattern
   std::cout << "The execution ended normally!\n";
   return rvOk;
 }
