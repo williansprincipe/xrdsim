@@ -66,8 +66,8 @@ badd +1 ~/xpx/Plot2D.cc
 badd +53 ~/xpx/Plot2D.h
 badd +27 Screen.h
 badd +17 Screen.cpp
-badd +0 Detector.h
-badd +0 Detector.cpp
+badd +1 Detector.h
+badd +1 Detector.cpp
 argglobal
 silent! argdel *
 set stal=2
@@ -191,7 +191,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 24 - ((15 * winheight(0) + 10) / 21)
+let s:l = 24 - ((23 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -317,7 +317,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((1 * winheight(0) + 10) / 21)
+let s:l = 4 - ((2 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -443,7 +443,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 8 - ((5 * winheight(0) + 10) / 21)
+let s:l = 8 - ((7 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -569,7 +569,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 47 - ((0 * winheight(0) + 10) / 21)
+let s:l = 47 - ((0 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -695,7 +695,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((10 * winheight(0) + 10) / 21)
+let s:l = 18 - ((17 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1073,12 +1073,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 17) / 35)
+let s:l = 18 - ((17 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
-normal! 018|
+18
+normal! 03|
 tabnext 8
 set stal=1
 if exists('s:wipebuf')
