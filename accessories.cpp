@@ -6,7 +6,7 @@
 #include<iostream>
 
 int msgToUserHeader()
-{ std::cout << "xrd1 -- v 0.2 -- 20180927_16h20min\n";
+{ std::cout << "xrdsim -- v 0.2 -- 20180927_16h20min\n";
   return 0;
 }
 
@@ -15,7 +15,7 @@ int msgToUserUsage(int argc)
     << "produced by plane monochromatic x-ray scattering through a \n"
     << "finite piece of a lattice (a cluster).\n"
     << "Usage:\n"
-    << "\txrd1 a1 a2 a3 b1 b2 b3 c1 c2 c3 Na Nb Nc d L n\n"
+    << "\txrdsim a1 a2 a3 b1 b2 b3 c1 c2 c3 Na Nb Nc d L n\n"
     << "\twhere\n"
     << "\t\ta1 is the x component of the first lattice vector in angstroms,\n"
     << "\t\ta2 is the y component of the first lattice vector in angstroms,\n"
